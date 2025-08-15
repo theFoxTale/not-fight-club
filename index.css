@@ -182,7 +182,7 @@ select:-webkit-autofill:focus {
     opacity: 1;
 }
 
-.current-name-label {
+.my-header-text {
     font-weight: bold;
     color: var(--my-red);
 }
@@ -193,6 +193,64 @@ select:-webkit-autofill:focus {
 
 .settings-button {
     width: 80px;
+    height: 30px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.character-container {
+    gap: 30px;
+}
+
+.character-image-container {
+    width: 258px;
+    height: 405px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.character-1 {
+    background-image: url("/assets/img/heroes/1.png");
+}
+
+.character-2 {
+    background-image: url("/assets/img/heroes/2.png");
+}
+
+.character-3 {
+    background-image: url("/assets/img/heroes/3.png");
+}
+
+.character-4 {
+    background-image: url("/assets/img/heroes/4.png");
+}
+
+.character-5 {
+    background-image: url("/assets/img/heroes/5.png");
+}
+
+.character-6 {
+    background-image: url("/assets/img/heroes/6.png");
+}
+
+.character-7 {
+    background-image: url("/assets/img/heroes/7.png");
+}
+
+.character-8 {
+    background-image: url("/assets/img/heroes/8.png");
+}
+
+.character-image-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.change-button {
+    width: 160px;
     height: 30px;
     cursor: pointer;
     font-weight: bold;
