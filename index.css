@@ -21,6 +21,14 @@ input:focus {
     outline: none;
 }
 
+.visible-element {
+    z-index: 20;
+}
+
+.hidden-element {
+    display: none !important;
+}
+
 /* Автозаполнение формы */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -43,6 +51,7 @@ select:-webkit-autofill:focus {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: opacity 1s;
 }
 
 .create-character-container {
@@ -60,7 +69,7 @@ select:-webkit-autofill:focus {
 
 .hello-image {
     width: 100px;
-    background-image: url("assets/img/boxing-glove.png");
+    background-image: url("/assets/img/boxing-glove.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -79,4 +88,67 @@ select:-webkit-autofill:focus {
     width: 80px;
     height: 32px;
     cursor: pointer;
+}
+
+/*
+* Header
+*/
+.game-flow-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-div {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    gap: 5px;
+    border-bottom: 2px solid #710707;
+    flex-shrink: 0;
+    align-items: center;
+}
+
+.window-name-span {
+    flex-grow: 1;
+    font-weight: bold;
+    font-size: 30px;
+    padding-left: 30px;
+    color: #710707;
+}
+
+.icon-header-div {
+    width: 50px;
+    height: 50px;
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.home-icon {
+    background-image: url("/assets/icons/home.png");
+}
+
+.character-icon {
+    background-image: url("/assets/icons/people.png");
+}
+
+.settings-icon {
+    background-image: url("/assets/icons/adjust.png");
+}
+
+.main-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fight-button {
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    font-weight: bold;
 }
