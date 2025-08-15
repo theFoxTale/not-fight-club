@@ -20,7 +20,7 @@
                 </div>
             </div>
             <label for="character-name" class="character-name-text">Character name:</label>
-            <input id="character-name" type="text">
+            <input id="character-name" type="text" class="text-input">
             <button type="button" class="create-character-button">Let's go!</button>
         </div>
     </section>
@@ -28,12 +28,46 @@
     <section class="game-flow-container">
         <div class="header-div">
             <span class="window-name-span"></span>
-            <div class="icon-header-div home-icon"></div>
-            <div class="icon-header-div character-icon"></div>
-            <div class="icon-header-div settings-icon"></div>
+            <div class="icon-header-div home-icon">
+                <div class="text-overlay">
+                    Main
+                </div>
+            </div>
+            <div class="icon-header-div character-icon">
+                <div class="text-overlay">
+                    My Character
+                </div>
+            </div>
+            <div class="icon-header-div settings-icon">
+                <div class="text-overlay">
+                    Settings
+                </div>
+            </div>
         </div>
-        <div class="main-container">
+        <div class="my-containers main-container">
             <button type="button" class="fight-button">Fight!</button>
+        </div>
+        <div class="my-containers character-container hidden-element">
+            <div class="character-image-block">
+                <div class="character-image-container"></div>
+                <button type="button" class="change-button">Change avatar</button>
+            </div>
+            <div class="character-info-container">
+                <p>
+                    <span class="my-header-text">Name: </span>
+                    <span class="my-character-name"></span>
+                </p>
+                <p class="my-header-text">Fights Statistics:</p>
+            </div>
+        </div>
+        <div class="my-containers settings-container hidden-element">
+            <label for="new-character-name" class="my-header-text">Current character name:</label>
+            <input id="new-character-name" type="text" class="text-input hidden-element">
+            <span class="current-name"></span>
+            <button type="button" class="settings-button save-button hidden-element">Save</button>
+            <button type="button" class="settings-button edit-button">Edit</button>
+        </div>
+        <div class="my-containers battle-container hidden-element">
         </div>
     </section>
 
