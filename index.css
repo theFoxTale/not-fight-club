@@ -1,3 +1,7 @@
+:root {
+    --my-red: #710707;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -51,7 +55,6 @@ select:-webkit-autofill:focus {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: opacity 1s;
 }
 
 .create-character-container {
@@ -84,6 +87,11 @@ select:-webkit-autofill:focus {
     height: 32px;
 }
 
+.text-input {
+    border: 1px solid white;
+    border-bottom: 1px solid black;
+}
+
 .create-character-button {
     width: 80px;
     height: 32px;
@@ -106,7 +114,7 @@ select:-webkit-autofill:focus {
     display: flex;
     gap: 15px;
     padding: 0 30px;
-    border-bottom: 2px solid #710707;
+    border-bottom: 2px solid var(--my-red);
     flex-shrink: 0;
     align-items: center;
 }
@@ -115,7 +123,7 @@ select:-webkit-autofill:focus {
     flex-grow: 1;
     font-weight: bold;
     font-size: 30px;
-    color: #710707;
+    color: var(--my-red);
 }
 
 .icon-header-div {
@@ -140,7 +148,7 @@ select:-webkit-autofill:focus {
     background-image: url("/assets/icons/adjust.png");
 }
 
-.main-container {
+.my-containers {
     flex-grow: 1;
     display: flex;
     justify-content: center;
@@ -172,4 +180,20 @@ select:-webkit-autofill:focus {
 
 .icon-header-div:hover .text-overlay {
     opacity: 1;
+}
+
+.current-name-label {
+    font-weight: bold;
+    color: var(--my-red);
+}
+
+.settings-container {
+    gap: 20px;
+}
+
+.settings-button {
+    width: 80px;
+    height: 30px;
+    cursor: pointer;
+    font-weight: bold;
 }

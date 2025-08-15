@@ -20,7 +20,7 @@
                 </div>
             </div>
             <label for="character-name" class="character-name-text">Character name:</label>
-            <input id="character-name" type="text">
+            <input id="character-name" type="text" class="text-input">
             <button type="button" class="create-character-button">Let's go!</button>
         </div>
     </section>
@@ -44,8 +44,19 @@
                 </div>
             </div>
         </div>
-        <div class="main-container">
+        <div class="my-containers main-container">
             <button type="button" class="fight-button">Fight!</button>
+        </div>
+        <div class="my-containers character-container hidden-element">
+        </div>
+        <div class="my-containers settings-container hidden-element">
+            <label for="new-character-name" class="current-name-label">Current character name:</label>
+            <input id="new-character-name" type="text" class="text-input hidden-element">
+            <span class="current-name"></span>
+            <button type="button" class="settings-button save-button hidden-element">Save</button>
+            <button type="button" class="settings-button edit-button">Edit</button>
+        </div>
+        <div class="my-containers battle-container hidden-element">
         </div>
     </section>
 
