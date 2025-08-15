@@ -1,0 +1,82 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: Roboto, sans-serif;
+}
+
+p {
+    cursor: default;
+}
+
+input:focus {
+    outline: none;
+}
+
+/* Автозаполнение формы */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+/*
+* Страница Create Character
+*/
+.create-character {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-character-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.hello-container {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.hello-image {
+    width: 100px;
+    background-image: url("assets/img/boxing-glove.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.character-name-text {
+    align-self: start;
+}
+
+#character-name {
+    width: 100%;
+    height: 32px;
+}
+
+.create-character-button {
+    width: 80px;
+    height: 32px;
+    cursor: pointer;
+}
