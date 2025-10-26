@@ -5,6 +5,7 @@ const windowsNames = ["Main", "Character", "Settings", "Battle"];
 let headerSpan, firstWindow, secondWindow, formContainers;
 let currentNameSpan, newNameInput, editNameButton, saveNameButton;
 let characterAvatar;
+let avatarsSlider, arrowLeft, arrowRight, avatarContainer;
 
 function randomInteger(min, max) {
     let rand = min + Math.random() * (max - min);
@@ -58,7 +59,7 @@ function getCurrentCharacterName() {
 }
 
 function getCurrentCharacterImage() {
-    return localStorage.getItem(myImageStorageKey);
+    return Number(localStorage.getItem(myImageStorageKey));
 }
 
 function setNameInSettingsContainer() {
@@ -99,13 +100,55 @@ function handleCharacterIconClick() {
 
 function handleSettingsIconClick() {
     setNameInSettingsContainer();
-    switchToContainer(2);
+    switchToContainer(3);
 }
 
 function handleNameEdit() {
     setCurrentCharacterName(newNameInput.value);
     setNameInSettingsContainer();
     switchSettingsElements();
+}
+
+function switchActiveCharacterImage(direction) {
+    let newAvatar;
+    const currentAvatar = document.querySelector('.avatar-active');
+    newAvatar = (direction > 0) ? currentAvatar.nextElementSibling : currentAvatar.previousElementSibling;
+
+    if (newAvatar) {
+        currentAvatar.classList.remove('avatar-active');
+        newAvatar.classList.add('avatar-active');
+
+        const avatarImage = newAvatar.querySelector('.avatar-image');
+        const characterClass = Array.from(avatarImage.classList).find(className => className.startsWith('character-'));
+        return Number(characterClass.split('-')[1]);
+    }
+
+    return 0;
+}
+
+function moveAvatarSlider() {
+    const currentAvatarID = getCurrentCharacterImage();
+    const shiftValue = -200 * (currentAvatarID - 2);
+    avatarsSlider.style.transform = `translateX(${shiftValue}px)`;
+}
+
+function changeAvatar(direction) {
+    const newAvatarID = switchActiveCharacterImage(direction);
+    if (newAvatarID) {
+        if (newAvatarID === 1 && direction < 0) arrowLeft.classList.add('not_active');
+        if (newAvatarID === 2 && direction > 0) arrowLeft.classList.remove('not_active');
+
+        if (newAvatarID === 8 && direction > 0) arrowRight.classList.add('not_active');
+        if (newAvatarID === 7 && direction < 0) arrowRight.classList.remove('not_active');
+
+        setCurrentCharacterImage(newAvatarID);
+        moveAvatarSlider();
+    }
+}
+
+function openChangeAvatarWindow() {
+    moveAvatarSlider();
+    switchToContainer(2);
 }
 
 function getWindowElements() {
@@ -121,10 +164,20 @@ function getWindowElements() {
     newNameInput = document.getElementById('new-character-name');
     editNameButton = document.querySelector('.edit-button');
     saveNameButton = document.querySelector('.save-button');
+
+    avatarContainer = document.querySelector('.change-avatar');
+    avatarsSlider = document.querySelector('.avatars-slider');
+    arrowLeft = document.querySelector('.arrow_left');
+    arrowRight = document.querySelector('.arrow_right');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     getWindowElements();
+
+    const character = getCurrentCharacterName();
+    if (character) {
+        switchWindows();
+    }
 
     const createCharacterButton = document.querySelector('.create-character-button');
     createCharacterButton.addEventListener('click', createNewCharacter);
@@ -137,6 +190,11 @@ document.addEventListener('DOMContentLoaded', () => {
     saveNameButton.addEventListener('click', handleNameEdit);
 
     document.querySelector('.fight-button').addEventListener('click', () => switchToContainer(3));
+
+    arrowLeft.addEventListener('click', () => changeAvatar(-1));
+    arrowRight.addEventListener('click', () => changeAvatar(1));
+
+    document.querySelector('.change-button').addEventListener('click', openChangeAvatarWindow);
 
     setActiveContainer(0);
 });

@@ -1,7 +1,11 @@
 :root {
     --my-red: #710707;
+
     --medium-red: #E64C3C;
     --dark-red: #C13A2B;
+
+    --dark-gray: #999999;
+    --medium-gray: #e0e0e0;
 }
 
 * {
@@ -25,14 +29,6 @@ p {
 
 input:focus {
     outline: none;
-}
-
-.visible-element {
-    z-index: 20;
-}
-
-.hidden-element {
-    display: none !important;
 }
 
 /* Автозаполнение формы */
@@ -258,23 +254,28 @@ select:-webkit-autofill:focus {
     font-weight: bold;
 }
 
-.change-character-avatar-container {
+.change-avatar {
+    background-color: rgba(200, 200, 200, 0.6);
+}
+
+.change-avatar-container {
     width: 1000px;
     height: 600px;
-    background-color: grey;
-    border: 1px solid black;
+    background-color: white;
+    border: 0 solid black;
+    border-radius: 42px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 30px;
 }
 
-.avatar-wrapper {
+.avatars-wrapper {
     overflow: hidden;
     width: 680px;
 }
 
-.avatar-slider {
+.avatars-slider {
     width: fit-content;
     display: flex;
     align-items: center;
@@ -282,7 +283,7 @@ select:-webkit-autofill:focus {
     position: relative;
 }
 
-.avatar-border {
+.avatar-block {
     width: 160px;
     height: 246px;
     background: transparent;
@@ -292,10 +293,10 @@ select:-webkit-autofill:focus {
     align-items: center;
 }
 
-.avatar-border.avatar-active {
+.avatar-active {
     width: 280px;
     height: 430px;
-    background: linear-gradient(135deg, var(--medium-red), var(--dark-red));
+    background: linear-gradient(135deg, var(--dark-red) 0%, transparent 50%, var(--dark-red) 100%);
 }
 
 .avatar-image {
@@ -311,4 +312,32 @@ select:-webkit-autofill:focus {
     width: 70px;
     height: 70px;
     cursor: pointer;
+
+    --arrow-dark: var(--dark-gray);
+    --arrow-medium: var(--medium-gray);
+
+    transition: all 1s;
+}
+
+.arrow_control:hover {
+    --arrow-dark: var(--dark-red);
+    --arrow-medium: var(--medium-red);
+}
+
+.not_active {
+    opacity: 0;
+    cursor: default;
+}
+
+.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.visible-element {
+    z-index: 20;
+}
+
+.hidden-element {
+    display: none;
 }
