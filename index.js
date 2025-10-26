@@ -39,6 +39,9 @@ function hideAllContainers() {
 function setActiveContainer(index) {
     headerSpan.textContent = windowsNames[index];
     formContainers[index].classList.remove('hidden-element');
+
+    const iconNames = ['home-icon', 'character-icon', 'character-icon', 'settings-icon'];
+    setActiveMenuIcon(iconNames[index]);
 }
 
 function switchToContainer(idx) {
@@ -149,6 +152,18 @@ function changeAvatar(direction) {
 function openChangeAvatarWindow() {
     moveAvatarSlider();
     switchToContainer(2);
+}
+
+function setActiveMenuIcon(iconClass) {
+    document.querySelectorAll('.icon-header-div').forEach(icon => {
+        icon.classList.remove('active');
+    });
+
+    console.log('ICON', iconClass);
+    const targetIcon = document.querySelector(`.${iconClass}`);
+    if (targetIcon) {
+        targetIcon.classList.add('active');
+    }
 }
 
 function getWindowElements() {

@@ -27,10 +27,11 @@
 
     <section class="game-flow-container">
         <div class="header-div">
+            <div class="logo-icon"></div>
             <span class="window-name-span"></span>
             <div class="icon-header-div home-icon">
                 <div class="text-overlay">
-                    Main
+                    Main Page
                 </div>
             </div>
             <div class="icon-header-div character-icon">
@@ -109,11 +110,13 @@
             </div>
         </div>
         <div class="my-containers settings-container hidden-element">
-            <label for="new-character-name" class="my-header-text">Current character name:</label>
-            <input id="new-character-name" type="text" class="text-input hidden-element">
-            <span class="current-name"></span>
-            <button type="button" class="settings-button save-button hidden-element">Save</button>
-            <button type="button" class="settings-button edit-button">Edit</button>
+            <div class="settings-name-wrapper">
+                <label for="new-character-name" class="my-header-text">Current character name:</label>
+                <input id="new-character-name" type="text" class="text-input hidden-element">
+                <span class="current-name"></span>
+                <button type="button" class="settings-button save-button hidden-element">Save</button>
+                <button type="button" class="settings-button edit-button">Edit</button>
+            </div>
         </div>
         <div class="my-containers battle-container hidden-element">
         </div>
