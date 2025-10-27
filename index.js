@@ -149,7 +149,19 @@ function changeAvatar(direction) {
     }
 }
 
+function setActiveAvatar() {
+    const currentAvatar = document.querySelector('.avatar-active');
+    if (currentAvatar) {
+        currentAvatar.classList.remove('avatar-active');
+    }
+
+    const currentAvatarID = getCurrentCharacterImage();
+    const avatarsList = document.querySelectorAll('.avatar-block');
+    avatarsList[currentAvatarID - 1].classList.add('avatar-active');
+}
+
 function openChangeAvatarWindow() {
+    setActiveAvatar();
     moveAvatarSlider();
     switchToContainer(2);
 }
@@ -159,7 +171,6 @@ function setActiveMenuIcon(iconClass) {
         icon.classList.remove('active');
     });
 
-    console.log('ICON', iconClass);
     const targetIcon = document.querySelector(`.${iconClass}`);
     if (targetIcon) {
         targetIcon.classList.add('active');
