@@ -1,0 +1,41 @@
+/*
+* Страница создания персонажа (стартовая)
+*/
+
+.create-character {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-character-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.hello-container {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.hello-image {
+  width: 100px;
+  background-image: url("../assets/img/boxing-glove.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.character-name-text {
+  align-self: start;
+}
+
+#character-name {
+  width: 100%;
+  height: 32px;
+}

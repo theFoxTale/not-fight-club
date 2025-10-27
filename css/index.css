@@ -1,0 +1,602 @@
+@charset "UTF-8";
+/* Основные стили */
+:root {
+  --my-red: #710707;
+  --medium-red: #E64C3C;
+  --dark-red: #C13A2B;
+  --dark-gray: #999999;
+  --medium-gray: #e0e0e0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, sans-serif;
+}
+
+p {
+  cursor: default;
+}
+
+input:focus {
+  outline: none;
+}
+
+/* Автозаполнение формы */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+}
+
+.game-flow-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.my-containers {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.my-containers::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/img/background.jpg");
+  background-size: cover;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.my-header-text {
+  font-weight: bold;
+  color: var(--my-red);
+}
+
+.text-input {
+  width: 200px;
+  border: 1px solid white;
+  border-bottom: 1px solid black;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+}
+
+.create-character-button,
+.fight-button,
+.change-button,
+.settings-button {
+  border: none;
+  border-radius: 12px;
+  color: white;
+  background: linear-gradient(135deg, var(--medium-red) 0%, var(--dark-red) 100%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.create-character-button:hover,
+.fight-button:hover,
+.change-button:hover,
+.settings-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25), 0 12px 30px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, var(--dark-red) 0%, var(--my-red) 100%);
+}
+
+.create-character-button:active,
+.fight-button:active,
+.change-button:active,
+.settings-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 3px 10px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.create-character-button::before,
+.fight-button::before,
+.change-button::before,
+.settings-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.create-character-button:hover::before,
+.fight-button:hover::before,
+.change-button:hover::before,
+.settings-button:hover::before {
+  left: 100%;
+}
+
+.create-character-button {
+  width: 80px;
+  height: 32px;
+  font-size: 12px;
+}
+
+.fight-button {
+  width: 150px;
+  height: 50px;
+  font-size: 16px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #E64C3C 0%, #C13A2B 50%, #710707 100%);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25), 0 8px 25px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.change-button {
+  width: 160px;
+  height: 30px;
+  font-size: 12px;
+}
+
+.settings-button {
+  width: 80px;
+  height: 30px;
+  font-size: 12px;
+}
+
+.fight-button:hover {
+  background: linear-gradient(135deg, #C13A2B 0%, #710707 50%, #500505 100%);
+}
+
+.create-character-button:disabled,
+.fight-button:disabled,
+.change-button:disabled,
+.settings-button:disabled {
+  background: linear-gradient(135deg, #cccccc 0%, #999999 100%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transform: none;
+  cursor: not-allowed;
+  color: #666666;
+}
+
+.create-character-button:disabled:hover,
+.fight-button:disabled:hover,
+.change-button:disabled:hover,
+.settings-button:disabled:hover {
+  transform: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили отдельных секций */
+.header-div {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  gap: 20px;
+  padding: 0 40px;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 0.85) 100%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(113, 7, 7, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  position: relative;
+  z-index: 100;
+}
+
+.header-div::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--dark-red), var(--medium-red), transparent, var(--medium-red), var(--dark-red));
+}
+
+.window-name-span {
+  flex-grow: 1;
+  font-weight: 800;
+  font-size: 28px;
+  color: var(--my-red);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 1px;
+}
+
+.logo-icon {
+  width: 45px;
+  height: 45px;
+  background-image: url("../assets/img/boxing-glove.png");
+  background-size: 120%;
+  background-repeat: no-repeat;
+  background-position: center top;
+  cursor: pointer;
+  position: relative;
+  background-color: #f3d55b;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 50%;
+}
+
+.icon-header-div {
+  width: 45px;
+  height: 45px;
+  background-size: 55%;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border: 1px solid rgba(113, 7, 7, 0.1);
+  border-radius: 50%;
+}
+
+.icon-header-div:hover {
+  transform: translateY(-3px) scale(1.05);
+  background-color: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), 0 0 15px rgba(230, 76, 60, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border-color: rgba(230, 76, 60, 0.3);
+}
+
+.icon-header-div:active {
+  transform: translateY(-1px) scale(1.02);
+  transition: all 0.1s ease;
+}
+
+.icon-header-div.active {
+  background-color: linear-gradient(135deg, var(--medium-red) 0%, var(--dark-red) 100%);
+  box-shadow: 0 4px 12px rgba(193, 58, 43, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.icon-header-div.active::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--medium-red) 0%, var(--dark-red) 100%);
+  z-index: -1;
+  opacity: 0.3;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+}
+.text-overlay {
+  position: absolute;
+  top: 55px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  min-width: 120px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--dark-red) 0%, var(--my-red) 100%);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 0 16px;
+  z-index: 1000;
+}
+
+.text-overlay::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid var(--dark-red);
+}
+
+.icon-header-div:hover .text-overlay {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px);
+}
+
+@keyframes headerSlideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.header-div {
+  animation: headerSlideDown 0.5s ease-out;
+}
+
+@media (max-width: 768px) {
+  .header-div {
+    height: 60px;
+    padding: 0 20px;
+    gap: 15px;
+  }
+  .window-name-span {
+    font-size: 22px;
+  }
+  .icon-header-div {
+    width: 40px;
+    height: 40px;
+  }
+  .text-overlay {
+    top: 50px;
+    min-width: 100px;
+    height: 28px;
+    font-size: 11px;
+  }
+}
+.home-icon {
+  background-image: url("../assets/icons/home.png");
+}
+
+.character-icon {
+  background-image: url("../assets/icons/people.png");
+}
+
+.settings-icon {
+  background-image: url("../assets/icons/adjust.png");
+}
+
+/*
+* Страница создания персонажа (стартовая)
+*/
+.create-character {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-character-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.hello-container {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.hello-image {
+  width: 100px;
+  background-image: url("../assets/img/boxing-glove.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.character-name-text {
+  align-self: start;
+}
+
+#character-name {
+  width: 100%;
+  height: 32px;
+}
+
+/*
+* Страница со сведениями о персонаже
+*/
+.character-container {
+  gap: 30px;
+}
+
+.character-image-container {
+  width: 258px;
+  height: 405px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.character-info-container {
+  padding: 30px;
+  border-radius: 100px;
+  background: radial-gradient(white, rgba(255, 255, 255, 0.7));
+}
+
+.character-1 {
+  background-image: url("../assets/img/heroes/1.png");
+}
+
+.character-2 {
+  background-image: url("../assets/img/heroes/2.png");
+}
+
+.character-3 {
+  background-image: url("../assets/img/heroes/3.png");
+}
+
+.character-4 {
+  background-image: url("../assets/img/heroes/4.png");
+}
+
+.character-5 {
+  background-image: url("../assets/img/heroes/5.png");
+}
+
+.character-6 {
+  background-image: url("../assets/img/heroes/6.png");
+}
+
+.character-7 {
+  background-image: url("../assets/img/heroes/7.png");
+}
+
+.character-8 {
+  background-image: url("../assets/img/heroes/8.png");
+}
+
+.character-image-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.change-avatar {
+  background-color: rgba(200, 200, 200, 0.6);
+}
+
+.change-avatar-container {
+  width: 1000px;
+  height: 600px;
+  background-color: white;
+  border: 0 solid black;
+  border-radius: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.avatars-wrapper {
+  overflow: hidden;
+  width: 680px;
+}
+
+.avatars-slider {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  position: relative;
+}
+
+.avatar-block {
+  width: 160px;
+  height: 246px;
+  background: transparent;
+  border-radius: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar-active {
+  width: 280px;
+  height: 430px;
+  background: linear-gradient(135deg, var(--dark-red) 0%, transparent 50%, var(--dark-red) 100%);
+}
+
+.avatar-image {
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  border-radius: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.arrow_control {
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  --arrow-dark: var(--dark-gray);
+  --arrow-medium: var(--medium-gray);
+  transition: all 1s;
+}
+
+.arrow_control:hover {
+  --arrow-dark: var(--dark-red);
+  --arrow-medium: var(--medium-red);
+}
+
+/*
+* Страница с настройками
+*/
+.settings-container {
+  gap: 20px;
+}
+
+.settings-name-wrapper {
+  padding: 30px;
+  border-radius: 100px;
+  background: radial-gradient(white, rgba(255, 255, 255, 0.7));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.current-name {
+  width: 200px;
+  padding-left: 3px;
+}
+
+/* Модификаторы стилей */
+.not_active {
+  opacity: 0;
+  cursor: default;
+}
+
+.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.visible-element {
+  z-index: 20;
+}
+
+.hidden-element {
+  display: none;
+}
+
+/*# sourceMappingURL=index.css.map */

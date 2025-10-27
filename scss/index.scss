@@ -1,0 +1,13 @@
+/* Основные стили */
+@use 'main';
+@use 'containers';
+@use 'buttons';
+
+/* Стили отдельных секций */
+@use 'containers/header';
+@use 'containers/create-character';
+@use 'containers/change-character';
+@use 'containers/settings';
+
+/* Модификаторы стилей */
+@use 'actions';

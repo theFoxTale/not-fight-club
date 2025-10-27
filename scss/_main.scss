@@ -1,0 +1,45 @@
+:root {
+  --my-red: #710707;
+
+  --medium-red: #E64C3C;
+  --dark-red: #C13A2B;
+
+  --dark-gray: #999999;
+  --medium-gray: #e0e0e0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, sans-serif;
+}
+
+p {
+  cursor: default;
+}
+
+input:focus {
+  outline: none;
+}
+
+/* Автозаполнение формы */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+}

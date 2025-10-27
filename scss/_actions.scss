@@ -1,0 +1,17 @@
+.not_active {
+  opacity: 0;
+  cursor: default;
+}
+
+.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.visible-element {
+  z-index: 20;
+}
+
+.hidden-element {
+  display: none;
+}

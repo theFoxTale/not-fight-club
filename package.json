@@ -1,0 +1,12 @@
+{
+  "name": "not-fight-club",
+  "version": "1.0.0",
+  "scripts": {
+    "build-css": "sass scss/index.scss css/index.css",
+    "watch-css": "sass --watch scss/index.scss css/index.css",
+    "build-css-prod": "sass scss/index.scss css/index.css --style=compressed"
+  },
+  "dependencies": {
+    "sass": "^1.93.2"
+  }
+}

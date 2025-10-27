@@ -1,0 +1,114 @@
+.create-character-button {
+  width: 80px;
+  height: 32px;
+  font-size: 12px;
+}
+
+.fight-button {
+  width: 150px;
+  height: 50px;
+  font-size: 16px;
+  border-radius: 16px;
+}
+
+.change-button {
+  width: 160px;
+  height: 30px;
+  font-size: 12px;
+}
+
+.settings-button {
+  width: 80px;
+  height: 30px;
+  font-size: 12px;
+}
+
+.create-character-button,
+.fight-button,
+.change-button,
+.settings-button {
+  border: none;
+  border-radius: 12px;
+  color: white;
+  background: linear-gradient(135deg, var(--medium-red) 0%, var(--dark-red) 100%);
+  box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.2),
+      0 6px 20px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.create-character-button:hover,
+.fight-button:hover,
+.change-button:hover,
+.settings-button:hover {
+  transform: translateY(-2px);
+  box-shadow:
+      0 8px 16px rgba(0, 0, 0, 0.25),
+      0 12px 30px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, var(--dark-red) 0%, var(--my-red) 100%);
+}
+
+.create-character-button:active,
+.fight-button:active,
+.change-button:active,
+.settings-button:active {
+  transform: translateY(0);
+  box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.2),
+      0 3px 10px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.create-character-button::before,
+.fight-button::before,
+.change-button::before,
+.settings-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.create-character-button:hover::before,
+.fight-button:hover::before,
+.change-button:hover::before,
+.settings-button:hover::before {
+  left: 100%;
+}
+
+.create-character-button:disabled,
+.fight-button:disabled,
+.change-button:disabled,
+.settings-button:disabled {
+  background: linear-gradient(135deg, #cccccc 0%, #999999 100%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transform: none;
+  cursor: not-allowed;
+  color: #666666;
+}
+
+.create-character-button:disabled:hover,
+.fight-button:disabled:hover,
+.change-button:disabled:hover,
+.settings-button:disabled:hover {
+  transform: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

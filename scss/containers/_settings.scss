@@ -1,0 +1,23 @@
+/*
+* Страница с настройками
+*/
+
+.settings-container {
+  gap: 20px;
+}
+
+.settings-name-wrapper {
+  padding: 30px;
+  border-radius: 100px;
+  background: radial-gradient(white, rgba(255, 255, 255, 0.7));
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.current-name {
+  width: 200px;
+  padding-left: 3px;
+}

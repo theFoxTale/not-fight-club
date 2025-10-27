@@ -1,0 +1,40 @@
+.game-flow-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.my-containers {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.my-containers::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/img/background.jpg");
+  background-size: cover;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.my-header-text {
+  font-weight: bold;
+  color: var(--my-red);
+}
+
+.text-input {
+  width: 200px;
+  border: 1px solid white;
+  border-bottom: 1px solid black;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+}
